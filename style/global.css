@@ -1,0 +1,4 @@
+/* styles/globals.css — imports the public stylesheet */
+@import url('/style.css');
+
+/* you can add any Next.js-only global overrides here */
