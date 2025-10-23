@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/><title>Admin — पहाड़ उदय</title><link rel="stylesheet" href="style.css"/></head>
+<body>
+  <div class="container" style="padding-top:30px">
+    <h2>Admin (dev only)</h2>
+    <input id="pass" type="password" placeholder="Password" style="width:100%;padding:8px;border:1px solid #ddd;border-radius:6px"/>
+    <div style="margin-top:10px;display:flex;justify-content:flex-end"><button onclick="login()" style="background:#0b5fff;color:#fff;padding:8px 12px;border-radius:6px;border:none">Login</button></div>
+    <p id="msg" style="color:#b91c1c;margin-top:10px"></p>
+  </div>
+<script>
+function login(){ var p=document.getElementById('pass').value; if(p==='pass@123') alert('Logged in (dev)'); else document.getElementById('msg').textContent='Invalid password'; }
+</script>
+</body>
+</html>
