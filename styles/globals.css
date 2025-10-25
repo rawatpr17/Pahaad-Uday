@@ -1,0 +1,15 @@
+/* styles/globals.css */
+:root {
+  --bg: #f7fafc;
+  --card: #fff;
+  --accent: #0b5fff;
+  --muted: #6b7280;
+}
+*{box-sizing:border-box}
+body{
+  margin:0;
+  font-family: system-ui, -apple-system, 'Noto Sans', 'Inter', sans-serif;
+  background:var(--bg);
+  color:#111;
+}
+a{color:var(--accent); text-decoration:none}
