@@ -1,0 +1,19 @@
+{
+  "version": 2,
+  "framework": "nextjs",
+  "builds": [
+    { "src": "next.config.js", "use": "@vercel/next" }
+  ],
+  "routes": [
+    { "src": "/(.*)", "dest": "/" }
+  ],
+  "env": {
+    "NEXT_PUBLIC_SITE_NAME": "Pahad Uday News",
+    "NEXT_PUBLIC_REGION": "Rudraprayag, Uttarakhand",
+    "NEXT_PUBLIC_CATEGORY": "sports, weather, local news, politics"
+  },
+  "github": {
+    "enabled": true,
+    "autoJobCancelation": true
+  }
+}
