@@ -3,23 +3,23 @@ import Link from "next/link";
 
 const ARTICLES = [
   {
-    id: "rudra-1",
+    id: "rudraprayag-local-updates",
     title: "रुद्रप्रयाग में सड़क मरम्मत का नया चरण शुरू",
     category: "Local",
     date: "2025-10-30",
-    excerpt: "स्थानीय प्रशासन ने रुद्रप्रयाग के प्रभावित हिस्सों में तात्कालिक मरम्मत आरम्भ की।",
+    excerpt: "स्थानीय प्रशासन ने रुद्रप्रयाग के प्रभावित हिस्सों में तात्कालिक मरम्मत कार्य शुरू किए हैं।",
     image: "/assets/rudraprayag.jpg"
   },
   {
-    id: "sports-1",
-    title: "देहरादून में खेल महोत्सव का उद्घाटन",
-    category: "Sports",
-    date: "2025-10-29",
-    excerpt: "मुख्यमंत्री ने राज्य स्तर के खेल महोत्सव का उद्घाटन किया।",
-    image: "/assets/sports.jpg"
+    id: "local-news",
+    title: "गाँव और शहर की खबरें",
+    category: "Local",
+    date: "2025-10-19",
+    excerpt: "गांवों में शुरू हुए विकास कार्य और सामुदायिक पहल।",
+    image: "/assets/local.jpg"
   },
   {
-    id: "weather-1",
+    id: "weather-alert",
     title: "मौसम अलर्ट: अगले 48 घंटे में भारी बारिश",
     category: "Weather",
     date: "2025-10-28",
@@ -81,8 +81,8 @@ export default function Home() {
           <div className="widget">
             <h4>Trending</h4>
             <ul>
-              <li><Link href="/articles/rudra-1"><a>रुद्रप्रयाग: सड़क मरम्मत</a></Link></li>
-              <li><Link href="/articles/sports-1"><a>देहरादून खेल महोत्सव</a></Link></li>
+              <li><Link href="/articles/rudraprayag-local-updates"><a>रुद्रप्रयाग: सड़क मरम्मत</a></Link></li>
+              <li><Link href="/articles/local-news"><a>गाँव और शहर: स्थानीय खबरें</a></Link></li>
             </ul>
           </div>
 
@@ -103,4 +103,4 @@ export default function Home() {
       </section>
     </>
   );
-    }
+}
