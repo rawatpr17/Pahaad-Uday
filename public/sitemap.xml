@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
- <url><loc>https://YOUR-VERCEL-URL.vercel.app/</loc></url>
- <url><loc>https://YOUR-VERCEL-URL.vercel.app/index.html</loc></url>
+  <!-- Replace YOUR_DOMAIN with your actual domain, e.g. https://pahaad-dialogue.example -->
+  <url><loc>https://YOUR_DOMAIN/</loc></url>
+  <url><loc>https://YOUR_DOMAIN/articles/rudraprayag-local-updates</loc></url>
+  <url><loc>https://YOUR_DOMAIN/articles/local-news</loc></url>
+  <url><loc>https://YOUR_DOMAIN/articles/weather-alert</loc></url>
+  <url><loc>https://YOUR_DOMAIN/articles/politics-update</loc></url>
 </urlset>
