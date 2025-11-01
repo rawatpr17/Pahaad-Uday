@@ -1,57 +1,91 @@
-// index.js
-import Image from "next/image";
+// pages/index.js
+import Link from "next/link";
 
-const newsData = [
+const ARTICLES = [
   {
-    title: "रुद्रप्रयाग में मौसम ने ली करवट, बर्फबारी से बढ़ी ठंड",
-    category: "Weather",
-    image: "https://images.unsplash.com/photo-1617196037759-7f5e5b1baf3b?auto=format&fit=crop&w=800&q=60",
-    date: "30 Oct 2025",
-    desc: "उत्तराखंड के ऊपरी इलाकों में बर्फबारी शुरू, लोगों ने गर्म कपड़े निकाल लिए।",
+    id: "rudra-1",
+    title: "रुद्रप्रयाग में सड़क मरम्मत का नया चरण शुरू",
+    category: "Local",
+    date: "2025-10-30",
+    excerpt: "स्थानीय प्रशासन ने रुद्रप्रयाग के प्रभावित हिस्सों में तात्कालिक मरम्मत आरम्भ की।",
+    image: "/assets/rudraprayag.jpg"
   },
   {
-    title: "देहरादून में खेल महोत्सव का शुभारंभ",
+    id: "sports-1",
+    title: "देहरादून में खेल महोत्सव का उद्घाटन",
     category: "Sports",
-    image: "https://images.unsplash.com/photo-1589487391663-36c6c0f3b27b?auto=format&fit=crop&w=800&q=60",
-    date: "29 Oct 2025",
-    desc: "राज्य के युवाओं में खेल को बढ़ावा देने के लिए मुख्यमंत्री ने किया उद्घाटन।",
+    date: "2025-10-29",
+    excerpt: "मुख्यमंत्री ने राज्य स्तर के खेल महोत्सव का उद्घाटन किया।",
+    image: "/assets/sports.jpg"
   },
   {
-    title: "उत्तराखंड विधानसभा में नए बिल पर चर्चा",
-    category: "Politics",
-    image: "https://images.unsplash.com/photo-1590608897129-79da98d159e0?auto=format&fit=crop&w=800&q=60",
-    date: "28 Oct 2025",
-    desc: "सत्र में सरकार ने रोजगार से जुड़ा अहम बिल पेश किया।",
-  },
+    id: "weather-1",
+    title: "मौसम अलर्ट: अगले 48 घंटे में भारी बारिश",
+    category: "Weather",
+    date: "2025-10-28",
+    excerpt: "मौसम विभाग ने पहाड़ों में भारी बारिश की चेतावनी जारी की है।",
+    image: "/assets/weather.jpg"
+  }
 ];
 
 export default function Home() {
   return (
-    <div id="home" className="space-y-8">
-      <section className="text-center">
-        <h2 className="text-3xl font-bold text-green-700">उत्तराखंड की ताज़ा खबरें</h2>
-        <p className="text-gray-600 mt-2">जानिए पहाड़ की हर छोटी-बड़ी खबर सिर्फ Pahaad Dialogue पर</p>
+    <>
+      <section className="hero">
+        <div className="container hero-inner">
+          <div className="hero-text">
+            <h1>Pahaad Dialogue</h1>
+            <p className="lead">Rudraprayag और Uttarakhand की सबसे ताज़ा, भरोसेमंद खबरें</p>
+          </div>
+          <div className="hero-image">
+            <img src="/assets/hero.jpg" alt="Pahaad Dialogue" />
+          </div>
+        </div>
       </section>
 
-      <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-        {newsData.map((news, index) => (
-          <div key={index} className="bg-white shadow rounded-xl overflow-hidden hover:shadow-lg transition">
-            <Image
-              src={news.image}
-              alt={news.title}
-              width={600}
-              height={400}
-              className="w-full h-48 object-cover"
-            />
-            <div className="p-4">
-              <span className="text-xs font-semibold uppercase text-green-600">{news.category}</span>
-              <h3 className="text-lg font-bold mt-2">{news.title}</h3>
-              <p className="text-gray-600 text-sm mt-1">{news.desc}</p>
-              <p className="text-xs text-gray-400 mt-2">{news.date}</p>
-            </div>
+      <section className="container layout-grid">
+        <div className="main-col">
+          <h2>Featured</h2>
+
+          <div className="featured">
+            <article className="card large">
+              <img src={ARTICLES[0].image} alt={ARTICLES[0].title} />
+              <div className="card-body">
+                <span className="cat">{ARTICLES[0].category}</span>
+                <h3>{ARTICLES[0].title}</h3>
+                <p className="meta">{ARTICLES[0].date}</p>
+                <p>{ARTICLES[0].excerpt}</p>
+                <Link href={`/articles/${ARTICLES[0].id}`}><a className="read">Read more</a></Link>
+              </div>
+            </article>
           </div>
-        ))}
-      </div>
-    </div>
-  );
-                      }
+
+          <h3 className="mt">Latest News</h3>
+          <div className="grid">
+            {ARTICLES.slice(1).map(a => (
+              <article key={a.id} className="card">
+                <img src={a.image} alt={a.title} />
+                <div className="card-body">
+                  <span className="cat">{a.category}</span>
+                  <h4>{a.title}</h4>
+                  <p className="meta">{a.date}</p>
+                  <p className="excerpt">{a.excerpt}</p>
+                  <Link href={`/articles/${a.id}`}><a className="read">Read more</a></Link>
+                </div>
+              </article>
+            ))}
+          </div>
+        </div>
+
+        <aside className="side-col">
+          <div className="widget">
+            <h4>Trending</h4>
+            <ul>
+              <li><Link href="/articles/rudra-1"><a>रुद्रप्रयाग: सड़क मरम्मत</a></Link></li>
+              <li><Link href="/articles/sports-1"><a>देहरादून खेल महोत्सव</a></Link></li>
+            </ul>
+          </div>
+
+          <div className="widget">
+            <h4>Newsletter</h4>
+            <p>Mobile पर
