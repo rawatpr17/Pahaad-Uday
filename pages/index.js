@@ -88,4 +88,19 @@ export default function Home() {
 
           <div className="widget">
             <h4>Newsletter</h4>
-            <p>Mobile पर
+            <p>Mobile पर updates पाने के लिए ईमेल दो।</p>
+            <form
+              onSubmit={(e) => {
+                e.preventDefault();
+                alert("Subscribed (demo)");
+              }}
+            >
+              <input type="email" placeholder="Email address" required />
+              <button type="submit">Subscribe</button>
+            </form>
+          </div>
+        </aside>
+      </section>
+    </>
+  );
+    }
