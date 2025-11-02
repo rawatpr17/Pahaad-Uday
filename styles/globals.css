@@ -1,145 +1,54 @@
-/* styles/globals.css - modified: header + logo optimized; rest same as before */
-
-:root{
-  --bg:#f7f7f8;
-  --card:#ffffff;
-  --accent:#0b5fff;
-  --muted:#6b7280;
-}
-*{box-sizing:border-box}
-body{margin:0;font-family:system-ui, 'Noto Sans', 'Inter', sans-serif;background:var(--bg);color:#111}
-.container{max-width:1000px;margin:0 auto;padding:14px}
-
-/* ---------------------------
-   HEADER + LOGO (MODIFIED)
-   --------------------------- */
-.site-header{
-  background:var(--card);
-  border-bottom:1px solid #eee;
-  padding:10px 0;
-  position:sticky;
-  top:0;
-  z-index:60;
+/* Header Section */
+.site-header {
+  background: #fff;
+  border-bottom: 2px solid #eaeaea;
+  padding: 8px 0;
 }
 
-/* inner container for header */
-.header-inner{
-  max-width:1000px;
-  margin:0 auto;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:16px;
-  padding:4px;
-  flex-wrap:wrap;
+.header-inner {
+  max-width: 1100px;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
 }
 
-/* logo area (left) */
-.logo-wrap{
-  display:flex;
-  align-items:center;
-  gap:12px;
-  min-width:180px;
+.logo-wrap {
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
 
-/* logo image - keep it rounded or circular if needed */
-.logo-img{
-  height:56px;          /* optimized for mobile + tablet */
-  width:auto;
-  border-radius:10px;   /* slight rounding */
-  box-shadow:0 2px 6px rgba(0,0,0,0.08);
-  object-fit:cover;
+.brand-title {
+  font-weight: 900;
+  color: #f6b400;
+  font-size: 1.3rem;
+  margin: 0;
 }
 
-/* brand text next to logo */
-.brand{
-  display:flex;
-  flex-direction:column;
-  line-height:1;
-}
-.brand-title{
-  font-weight:900;
-  color:#f6b400;        /* yellow-ish like your logo */
-  font-size:1.1rem;     /* good for mobile */
-  margin:0;
-}
-.brand-sub{
-  font-size:0.85rem;
-  color:#2b6cb0;
-  margin-top:2px;
+.brand-sub {
+  font-size: 0.9rem;
+  color: #2b6cb0;
+  margin: 0;
 }
 
-/* header banner (center / top) - responsive */
-.header-banner{
-  flex:1;
-  display:block;
-  max-width:600px;
-  margin-left:12px;
-  margin-right:12px;
-}
-.header-banner img{
-  width:100%;
-  height:90px;           /* compact banner height for mobile */
-  object-fit:cover;
-  border-radius:8px;
-  box-shadow:0 2px 8px rgba(0,0,0,0.06);
+.header-banner {
+  flex: 1;
+  max-width: 600px;
 }
 
-/* simple nav on right (keeps small on mobile) */
-.main-nav{
-  display:flex;
-  gap:10px;
-  align-items:center;
-  justify-content:flex-end;
-  min-width:120px;
-}
-.main-nav a{
-  margin-left:8px;
-  color:#333;
-  text-decoration:none;
-  font-size:0.9rem;
-  padding:6px 8px;
-  border-radius:6px;
-}
-.main-nav a:hover{ color:var(--accent); }
-
-/* responsive adjustments for header */
-@media (max-width:768px){
-  .header-inner{ flex-direction:column; align-items:flex-start; gap:8px; padding:8px; }
-  .logo-img{ height:52px; }
-  .header-banner img{ height:120px; } /* taller banner on smaller screens for visibility */
-  .main-nav{ width:100%; overflow:auto; padding-top:6px; }
+.main-container {
+  padding: 20px;
 }
 
-/* ---------------------------
-   REST OF YOUR ORIGINAL STYLES
-   (unchanged or re-ordered slightly)
-   --------------------------- */
-
-.brand .logo{font-weight:700;color:var(--accent);text-decoration:none;display:flex;align-items:center;gap:8px}
-.brand .logo-img{height:40px;width:auto}
-.main-nav a{margin-left:12px;color:#333;text-decoration:none}
-.hero{background:#fff;padding:12px 0;margin-bottom:12px}
-.hero-inner{display:flex;gap:12px;align-items:center}
-.hero-text h1{margin:0;font-size:1.4rem;color:var(--accent)}
-.hero-text .lead{color:var(--muted);margin-top:6px}
-.hero-image img{width:160px;height:100px;object-fit:cover;border-radius:6px}
-.layout-grid{display:grid;grid-template-columns:1fr;gap:16px}
-@media(min-width:900px){
-  .layout-grid{grid-template-columns:2fr 1fr}
-  .hero-inner{flex-direction:row}
+@media (max-width: 768px) {
+  .header-inner {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .header-banner {
+    width: 100%;
+  }
 }
-.main-col h2{margin:0 0 8px 0}
-.featured .large img{width:100%;height:220px;object-fit:cover}
-.grid{display:grid;grid-template-columns:1fr;gap:12px}
-@media(min-width:700px){ .grid{grid-template-columns:1fr 1fr} }
-.card{background:var(--card);border-radius:8px;overflow:hidden;box-shadow:0 1px 4px rgba(0,0,0,0.04)}
-.card img{width:100%;height:140px;object-fit:cover}
-.card-body{padding:10px}
-.cat{font-size:11px;color:var(--accent);font-weight:700}
-.meta{font-size:12px;color:var(--muted);margin-top:6px}
-.read{display:inline-block;margin-top:8px;color:var(--accent);text-decoration:underline}
-.side-col .widget{background:var(--card);padding:12px;border-radius:8px;margin-bottom:12px}
-input[type="email"], button{width:100%;padding:10px;margin-top:8px;border-radius:6px;border:1px solid #ddd}
-button{background:var(--accent);color:#fff;border:none}
-.site-footer{background:#111;color:#fff;padding:12px;text-align:center;margin-top:18px}
