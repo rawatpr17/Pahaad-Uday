@@ -21,7 +21,7 @@ export default function App({ Component, pageProps }) {
           </div>
 
           <div className="header-banner">
-            <img src="/header.jpg" alt="Pahaad Dialogue Header" style={{ width: "100%", height: "auto", maxWidth: 1200 }} />
+            <img src="/header.jpg" alt="Pahaad Dialogue Header" style={{ width: "100%", height: "350", maxWidth: 1200 }} />
           </div>
         </div>
       </header>
