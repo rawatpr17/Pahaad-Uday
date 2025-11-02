@@ -1,50 +1,44 @@
 // pages/_app.js
-import "../styles/globals.css";
-import Head from "next/head";
-import Link from "next/link";
+import "@/styles/globals.css";
+import Image from "next/image";
 
 export default function App({ Component, pageProps }) {
   return (
     <>
-      <Head>
-        <title>Pahaad Dialogue — Rudraprayag, Uttarakhand</title>
-        <meta name="description" content="Pahaad Dialogue — Rudraprayag & Uttarakhand की ताज़ा खबरें" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
-
-      <div className="app-root">
-        <header className="site-header">
-          <div className="container">
+      <header className="site-header">
+        <div className="header-inner">
+          {/* Logo Section */}
+          <div className="logo-wrap">
+            <Image
+              src="/logo.png"
+              alt="Pahaad Dialogue Logo"
+              width={70}
+              height={70}
+              priority
+            />
             <div className="brand">
-              <Link href="/" className="logo">
-                <img src="/assets/logo.png" alt="Pahaad Dialogue" className="logo-img" />
-                <span>Pahaad <strong>Dialogue</strong></span>
-              </Link>
-              <div className="tag">Rudraprayag • Uttarakhand</div>
+              <h1 className="brand-title">पहाड़ डायलॉग</h1>
+              <p className="brand-sub">Pahaad Dialogue</p>
             </div>
-
-            <nav className="main-nav">
-              <Link href="/">Home</Link>
-              <Link href="/categories/uttarakhand">Uttarakhand</Link>
-              <Link href="/categories/sports">Sports</Link>
-              <Link href="/categories/weather">Weather</Link>
-              <Link href="/categories/local">Local</Link>
-              <Link href="/categories/politics">Politics</Link>
-            </nav>
           </div>
-        </header>
 
-        <main className="container main-content">
-          <Component {...pageProps} />
-        </main>
-
-        <footer className="site-footer">
-          <div className="container">
-            © {new Date().getFullYear()} Pahaad Dialogue — Rudraprayag, Uttarakhand
+          {/* Header Banner */}
+          <div className="header-banner">
+            <Image
+              src="/header.jpg"
+              alt="Pahaad Dialogue Header"
+              width={900}
+              height={150}
+              layout="responsive"
+              priority
+            />
           </div>
-        </footer>
-      </div>
+        </div>
+      </header>
+
+      <main className="main-container">
+        <Component {...pageProps} />
+      </main>
     </>
   );
-    }
+                }
