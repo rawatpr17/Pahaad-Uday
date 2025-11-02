@@ -10,13 +10,17 @@ export default function App({ Component, pageProps }) {
         <title>Pahaad Dialogue — Rudraprayag, Uttarakhand</title>
         <meta name="description" content="Pahaad Dialogue — Rudraprayag & Uttarakhand की ताज़ा खबरें" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="icon" href="/favicon.ico" />
       </Head>
 
       <div className="app-root">
         <header className="site-header">
           <div className="container">
             <div className="brand">
-              <Link href="/" className="logo">Pahaad <strong>Dialogue</strong></Link>
+              <Link href="/" className="logo">
+                <img src="/assets/logo.png" alt="Pahaad Dialogue" className="logo-img" />
+                <span>Pahaad <strong>Dialogue</strong></span>
+              </Link>
               <div className="tag">Rudraprayag • Uttarakhand</div>
             </div>
 
