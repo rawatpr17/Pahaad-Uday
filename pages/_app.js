@@ -11,7 +11,7 @@ export default function App({ Component, pageProps }) {
             {/* Use plain <img> so Next build never fails due to Image optimisation */}
             <Link href="/">
               <a style={{ display: "flex", alignItems: "center", gap: 10 }}>
-                <img src="/logo.png" alt="Pahaad Dialogue Logo" width="70" height="70" style={{ borderRadius: 6 }} />
+                <img src="/logo.png" alt="Pahaad Dialogue Logo" width="120" height="120" style={{ borderRadius: 6 }} />
                 <div>
                   <div className="brand-title">पहाड़ डायलॉग</div>
                   <div className="brand-sub">Pahaad Dialogue</div>
