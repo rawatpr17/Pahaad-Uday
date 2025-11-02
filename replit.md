@@ -8,12 +8,22 @@ The project emphasizes simplicity and performance, leveraging Next.js's static s
 
 ## Recent Changes
 
+**November 2, 2025 - Vercel Deployment Preparation & Visual Assets**
+- Generated professional brand and content images:
+  - Logo with mountain/news theme for header
+  - Hero image featuring Rudraprayag valley panorama
+  - Article images (road repair, local village, weather alerts)
+- Integrated logo into site header with favicon support
+- Added Vercel deployment configuration (vercel.json)
+- Created comprehensive deployment guide (VERCEL_DEPLOYMENT.md)
+- Verified production build compiles successfully (all 7 pages generated)
+- Site ready for Vercel deployment with complete visual assets
+
 **November 2, 2025 - Vercel to Replit Migration**
 - Migrated project from Vercel to Replit environment
 - Updated Next.js Link components to use modern API (removed nested `<a>` tags for Next.js 14 compatibility)
 - Configured development server to bind to 0.0.0.0:5000 for Replit webview
 - Set up deployment configuration for autoscale deployment
-- Note: Image assets (hero.jpg, rudraprayag.jpg, local.jpg, weather.jpg) are currently missing from /public/assets/ directory
 
 ## User Preferences
 
