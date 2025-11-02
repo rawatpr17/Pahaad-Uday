@@ -17,7 +17,7 @@ export default function ArticlePage({ frontmatter, contentHtml }) {
           <p className="meta">{frontmatter.date}</p>
           <div dangerouslySetInnerHTML={{ __html: contentHtml }} />
           <p style={{marginTop: 12}}>
-            <Link href="/"><a>← Back to Home</a></Link>
+            <Link href="/">← Back to Home</Link>
           </p>
         </div>
       </article>

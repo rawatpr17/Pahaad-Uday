@@ -55,7 +55,7 @@ export default function Home() {
                 <h3>{ARTICLES[0].title}</h3>
                 <p className="meta">{ARTICLES[0].date}</p>
                 <p>{ARTICLES[0].excerpt}</p>
-                <Link href={`/articles/${ARTICLES[0].id}`}><a className="read">Read more</a></Link>
+                <Link href={`/articles/${ARTICLES[0].id}`} className="read">Read more</Link>
               </div>
             </article>
           </div>
@@ -70,7 +70,7 @@ export default function Home() {
                   <h4>{a.title}</h4>
                   <p className="meta">{a.date}</p>
                   <p className="excerpt">{a.excerpt}</p>
-                  <Link href={`/articles/${a.id}`}><a className="read">Read more</a></Link>
+                  <Link href={`/articles/${a.id}`} className="read">Read more</Link>
                 </div>
               </article>
             ))}
@@ -81,8 +81,8 @@ export default function Home() {
           <div className="widget">
             <h4>Trending</h4>
             <ul>
-              <li><Link href="/articles/rudraprayag-local-updates"><a>रुद्रप्रयाग: सड़क मरम्मत</a></Link></li>
-              <li><Link href="/articles/local-news"><a>गाँव और शहर: स्थानीय खबरें</a></Link></li>
+              <li><Link href="/articles/rudraprayag-local-updates">रुद्रप्रयाग: सड़क मरम्मत</Link></li>
+              <li><Link href="/articles/local-news">गाँव और शहर: स्थानीय खबरें</Link></li>
             </ul>
           </div>
 
