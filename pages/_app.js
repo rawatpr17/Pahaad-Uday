@@ -13,15 +13,14 @@ export default function App({ Component, pageProps }) {
               <a style={{ display: "flex", alignItems: "center", gap: 10 }}>
                 <img src="/logo.png" alt="Pahaad Dialogue Logo" width="120" height="120" style={{ borderRadius: 6 }} />
                 <div>
-                  <div className="brand-title">पहाड़ डायलॉग</div>
-                  <div className="brand-sub">Pahaad Dialogue</div>
+                 
                 </div>
               </a>
             </Link>
           </div>
 
           <div className="header-banner">
-            <img src="/header.jpg" alt="Pahaad Dialogue Header" style={{ width: "100%", height: "350", maxWidth: 1200 }} />
+            <img src="/header.jpg" alt="Pahaad Dialogue Header" style={{ width: "100%", height: "auto", maxWidth: 1300 }} />
           </div>
         </div>
       </header>
