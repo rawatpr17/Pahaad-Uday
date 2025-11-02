@@ -10,10 +10,11 @@ export default function App({ Component, pageProps }) {
           <div className="logo-wrap">
             {/* Use plain <img> so Next build never fails due to Image optimisation */}
             <Link href="/">
-              <a style={{ display: "flex", alignItems: "center", gap: 10 }}>
+              <a style={{ display: "flex", alignItems: "center", gap: 20 }}>
                 <img src="/logo.png" alt="Pahaad Dialogue Logo" width="120" height="120" style={{ borderRadius: 6 }} />
                 <div>
-                 
+                  <div className="brand-title">पहाड़ डायलॉग</div>
+                  <div className="brand-sub">Pahaad Dialogue</div>
                 </div>
               </a>
             </Link>
