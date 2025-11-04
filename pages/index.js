@@ -1,4 +1,8 @@
-import React, { useState } from 'react';
+// हटाओ:
+// import { Menu, X, Search } from 'lucide-react';
+
+// लगाओ:
+import { MenuIcon as Menu, XIcon as X, SearchIcon as Search } from "../components/Icons";
 
 export default function PahadDialogueHome() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
