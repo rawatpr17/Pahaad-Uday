@@ -298,4 +298,4 @@ export default function PahadDialogueHome() {
       </footer>
     </div>
   );
-                    }
+}
