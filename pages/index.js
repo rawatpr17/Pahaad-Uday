@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import Head from 'next/head';
 
 export default function PahadDialogueHome() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -16,8 +17,7 @@ export default function PahadDialogueHome() {
   const mainArticle = {
     title: 'उत्तराखंड को विशेष राज्य का दर्जा देने की मांग पूर्ण सरकार के समय उठी',
     date: 'April 30 2024',
-    category: 'राजनीति',
-    image: '/api/placeholder/800/500'
+    image: 'https://images.unsplash.com/photo-1586339949216-35c7f0c2db4e?w=800&h=500&fit=crop'
   };
 
   const sideArticles = [
@@ -25,19 +25,19 @@ export default function PahadDialogueHome() {
       title: 'सृजन में परवल को वनस्पम टैंग लिए नई योजनाओं की व्याणा',
       date: 'April 18, 2024',
       category: 'उत्तराखंड',
-      image: '/api/placeholder/400/300'
+      image: 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400&h=300&fit=crop'
     },
     {
       title: 'आगामी चुण्णा को लेकर राजनीतिक दल मैथारियों में पूरे',
       date: 'April 18, 2024',
       category: 'राजनीति',
-      image: '/api/placeholder/400/300'
+      image: 'https://images.unsplash.com/photo-1541872703-74c5e44368f9?w=400&h=300&fit=crop'
     },
     {
       title: 'सीमा पर द्वांडा दलो की तैयारियों का जायचा',
       date: 'April 14, 2024',
       category: 'रक्षा',
-      image: '/api/placeholder/400/300'
+      image: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=400&h=300&fit=crop'
     }
   ];
 
@@ -45,237 +45,328 @@ export default function PahadDialogueHome() {
     {
       title: 'उत्तराखंड को विशेष राज्य का दर्जा रेड्डे की नांग पुन सरकार के लगदो उठी',
       date: 'April 23, 2024',
-      image: '/api/placeholder/300/200'
+      image: 'https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=300&h=200&fit=crop'
     },
     {
       title: 'राज्या से नैनी पझपुण पर रेक ठका कदम की बोपणा',
       date: 'April 18, 2024',
-      image: '/api/placeholder/300/200'
+      image: 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=300&h=200&fit=crop'
     },
     {
       title: 'उत्तराखंड ने नदी प्रदूषण पर रोकथाम के लिए मंडन',
       date: 'April 17, 2024',
-      image: '/api/placeholder/300/200'
+      image: 'https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=300&h=200&fit=crop'
     }
   ];
 
   const categories = [
-    'उत्तराखंड',
-    'राजनीति',
-    'पर्यावरण',
-    'पर्यटन',
-    'बोली',
-    'संस्कृति',
-    'खेल',
-    'स्वास्थ्य'
+    'उत्तराखंड', 'राजनीति', 'पर्यावरण', 'पर्यटन',
+    'बोली', 'संस्कृति', 'खेल', 'स्वास्थ्य'
   ];
 
   return (
-    <div className="min-h-screen bg-gray-50">
-      {/* Top Header - LOGO SIZE FIX */}
-      <div className="bg-white border-b shadow-sm">
-        <div className="max-w-7xl mx-auto px-4 py-3">
-          <div className="flex items-center justify-between">
-            {/* Mobile Menu Button */}
-            <button 
-              className="md:hidden p-2 hover:bg-gray-100 rounded-lg text-xl" 
-              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            >
-              {mobileMenuOpen ? '✕' : '☰'}
-            </button>
+    <>
+      <Head>
+        <title>Pahad Dialogue - पहाड़ डायलॉग</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+      </Head>
 
-            {/* Logo and Header - FIXED SIZE */}
-            <div className="flex items-center gap-3 flex-1 justify-center md:justify-start">
-              <img 
-                src="/logo.png" 
-                alt="Pahad Dialogue Logo" 
-                className="h-12 w-12 object-contain"
-                style={{ maxHeight: '48px', maxWidth: '48px' }}
-              />
-              <img 
-                src="/header.jpg" 
-                alt="Pahad Dialogue" 
-                className="h-12 object-contain"
-                style={{ maxHeight: '48px', width: 'auto' }}
-              />
+      <style jsx global>{`
+        * {
+          margin: 0;
+          padding: 0;
+          box-sizing: border-box;
+        }
+        body {
+          font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+          background: #f9fafb;
+        }
+        .line-clamp-3 {
+          display: -webkit-box;
+          -webkit-line-clamp: 3;
+          -webkit-box-orient: vertical;
+          overflow: hidden;
+        }
+      `}</style>
+
+      <div style={{ minHeight: '100vh', background: '#f9fafb' }}>
+        {/* Header - LOGO SIZE FIXED */}
+        <div style={{ background: 'white', borderBottom: '1px solid #e5e7eb', boxShadow: '0 1px 2px 0 rgba(0,0,0,0.05)' }}>
+          <div style={{ maxWidth: '1280px', margin: '0 auto', padding: '12px 16px' }}>
+            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+              {/* Mobile Menu */}
+              <button 
+                onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+                style={{ 
+                  display: mobileMenuOpen ? 'block' : 'none',
+                  fontSize: '24px',
+                  border: 'none',
+                  background: 'none',
+                  cursor: 'pointer',
+                  padding: '8px'
+                }}
+                className="md-hidden"
+              >
+                {mobileMenuOpen ? '✕' : '☰'}
+              </button>
+
+              {/* Logo & Header - SIZE CONTROLLED */}
+              <div style={{ display: 'flex', alignItems: 'center', gap: '16px', flex: 1, justifyContent: 'center' }}>
+                <img 
+                  src="/logo.png" 
+                  alt="Pahad Dialogue Logo" 
+                  style={{ 
+                    height: '50px',
+                    width: '50px',
+                    objectFit: 'contain',
+                    maxHeight: '50px',
+                    maxWidth: '50px'
+                  }}
+                  onError={(e) => {
+                    e.target.style.display = 'none';
+                  }}
+                />
+                <img 
+                  src="/header.jpg" 
+                  alt="Pahad Dialogue" 
+                  style={{ 
+                    height: '50px',
+                    width: 'auto',
+                    objectFit: 'contain',
+                    maxHeight: '50px',
+                    maxWidth: '400px'
+                  }}
+                  onError={(e) => {
+                    e.target.innerHTML = '<span style="color:#dc2626;font-weight:bold;font-size:24px">पहाड़ डायलॉग</span>';
+                  }}
+                />
+              </div>
+
+              {/* Search */}
+              <button style={{ 
+                fontSize: '20px', 
+                border: 'none', 
+                background: 'none', 
+                cursor: 'pointer',
+                padding: '8px',
+                borderRadius: '50%'
+              }}>
+                🔍
+              </button>
             </div>
-
-            {/* Search */}
-            <button className="hidden md:block p-2 hover:bg-gray-100 rounded-full text-lg">
-              🔍
-            </button>
           </div>
         </div>
-      </div>
 
-      {/* Navigation */}
-      <nav className="bg-white border-b shadow-sm sticky top-0 z-40">
-        <div className="max-w-7xl mx-auto px-4">
-          <div className="hidden md:flex items-center gap-6 py-3">
-            {navigationItems.map((item, idx) => (
-              <a
-                key={idx}
-                href={item.href}
-                className="text-gray-700 hover:text-red-600 font-semibold text-sm transition-colors"
-              >
-                {item.label}
-              </a>
-            ))}
-          </div>
-
-          {mobileMenuOpen && (
-            <div className="md:hidden py-3 space-y-1">
+        {/* Navigation */}
+        <nav style={{ background: 'white', borderBottom: '1px solid #e5e7eb', position: 'sticky', top: 0, zIndex: 40, boxShadow: '0 1px 2px 0 rgba(0,0,0,0.05)' }}>
+          <div style={{ maxWidth: '1280px', margin: '0 auto', padding: '0 16px' }}>
+            <div style={{ display: 'flex', gap: '24px', padding: '12px 0', overflowX: 'auto' }}>
               {navigationItems.map((item, idx) => (
                 <a
                   key={idx}
                   href={item.href}
-                  className="block py-2 text-gray-700 hover:text-red-600 font-semibold text-sm"
-                  onClick={() => setMobileMenuOpen(false)}
+                  style={{ 
+                    color: '#374151',
+                    fontWeight: 600,
+                    fontSize: '15px',
+                    textDecoration: 'none',
+                    whiteSpace: 'nowrap',
+                    transition: 'color 0.2s'
+                  }}
+                  onMouseEnter={(e) => e.target.style.color = '#dc2626'}
+                  onMouseLeave={(e) => e.target.style.color = '#374151'}
                 >
                   {item.label}
                 </a>
               ))}
             </div>
-          )}
-        </div>
-      </nav>
-
-      {/* Breaking News */}
-      <div className="bg-red-600 text-white">
-        <div className="max-w-7xl mx-auto px-4 py-2">
-          <div className="flex items-center gap-3">
-            <span className="font-bold text-xs uppercase whitespace-nowrap">ब्रेकिंग न्यूज</span>
-            <p className="text-sm truncate">चुण्णानी में किया राज्य के दौरा दिवाला सिरोऽजनाओं का किया निरिदान</p>
           </div>
-        </div>
-      </div>
+        </nav>
 
-      {/* Main Content */}
-      <div className="max-w-7xl mx-auto px-4 py-6">
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
-          {/* Main Article */}
-          <div className="lg:col-span-2">
-            <div className="relative rounded-lg overflow-hidden shadow-lg group cursor-pointer">
-              <img 
-                src={mainArticle.image} 
-                alt={mainArticle.title} 
-                className="w-full h-96 object-cover group-hover:scale-105 transition-transform duration-500" 
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent"></div>
-              <div className="absolute bottom-0 p-6 text-white">
-                <h1 className="text-2xl md:text-3xl font-bold mb-2 group-hover:text-yellow-400 transition-colors">
-                  {mainArticle.title}
-                </h1>
-                <p className="text-xs text-gray-300">{mainArticle.date}</p>
-              </div>
-            </div>
-          </div>
-
-          {/* Side Articles */}
-          <div className="space-y-4">
-            {sideArticles.map((article, idx) => (
-              <div key={idx} className="relative rounded-lg overflow-hidden shadow-md group cursor-pointer">
-                <img 
-                  src={article.image} 
-                  alt={article.title} 
-                  className="w-full h-40 object-cover group-hover:scale-105 transition-transform duration-500" 
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent"></div>
-                <div className="absolute top-3 left-3">
-                  <span className="bg-yellow-500 text-black text-xs font-bold px-2 py-1 rounded">
-                    {article.category}
-                  </span>
-                </div>
-                <div className="absolute bottom-0 p-3 text-white">
-                  <h3 className="text-sm font-bold group-hover:text-yellow-400 transition-colors">
-                    {article.title}
-                  </h3>
-                  <p className="text-xs text-gray-300 mt-1">{article.date}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-
-        {/* Section Tabs */}
-        <div className="mt-8 border-b-2 border-red-600">
-          <div className="flex gap-6">
-            <button className="pb-2 font-bold text-red-600 border-b-3 border-red-600">
-              उत्तरखंड
-            </button>
-            <button className="pb-2 font-semibold text-gray-600 hover:text-red-600">
-              राजनीति
-            </button>
-            <button className="pb-2 font-semibold text-gray-600 hover:text-red-600">
-              पर्यावरण
-            </button>
-          </div>
-        </div>
-
-        {/* Articles Grid */}
-        <div className="mt-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-          {articles.map((article, idx) => (
-            <div key={idx} className="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-shadow cursor-pointer group">
-              <img 
-                src={article.image} 
-                alt={article.title} 
-                className="w-full h-40 object-cover group-hover:scale-105 transition-transform duration-500" 
-              />
-              <div className="p-4">
-                <h3 className="font-bold text-gray-800 text-sm mb-2 hover:text-red-600 transition-colors">
-                  {article.title}
-                </h3>
-                <p className="text-xs text-gray-500">{article.date}</p>
-              </div>
-            </div>
-          ))}
-        </div>
-
-        {/* Categories */}
-        <div className="mt-12">
-          <h2 className="text-2xl font-bold mb-6">श्रेणियाँ</h2>
-          <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-8 gap-3">
-            {categories.map((cat, idx) => (
-              <button
-                key={idx}
-                className="bg-white border-2 border-gray-300 rounded-lg py-3 px-3 font-semibold text-sm text-gray-700 hover:border-red-600 hover:text-red-600 transition-all"
-              >
-                {cat}
-              </button>
-            ))}
-          </div>
-        </div>
-      </div>
-
-      {/* Footer */}
-      <footer className="bg-gray-900 text-white mt-16">
-        <div className="max-w-7xl mx-auto px-4 py-8">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
-            <div>
-              <h3 className="text-lg font-bold mb-3 text-yellow-400">पहाड डायलाग</h3>
-              <p className="text-gray-400 text-sm">उत्तराखंड की आवाज़, पहाड़ से पहाड़ी तक</p>
-            </div>
-            <div>
-              <h4 className="font-bold mb-3">लिंक</h4>
-              <ul className="space-y-2 text-sm text-gray-400">
-                <li><a href="/" className="hover:text-yellow-400">होम</a></li>
-                <li><a href="/about" className="hover:text-yellow-400">हमारे बारे में</a></li>
-                <li><a href="/contact" className="hover:text-yellow-400">संपर्क</a></li>
-              </ul>
-            </div>
-            <div>
-              <h4 className="font-bold mb-3">संपर्क</h4>
-              <p className="text-sm text-gray-400">
-                ईमेल: info@pahaddialogue.com<br/>
-                फोन: +91 1234567890
+        {/* Breaking News */}
+        <div style={{ background: '#dc2626', color: 'white' }}>
+          <div style={{ maxWidth: '1280px', margin: '0 auto', padding: '10px 16px' }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
+              <span style={{ fontWeight: 'bold', fontSize: '12px', textTransform: 'uppercase', whiteSpace: 'nowrap' }}>
+                BREAKING NEWS
+              </span>
+              <p style={{ fontSize: '14px', animation: 'pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite' }}>
+                चुण्णानी में किया राज्य के दौरा दिवाला सिरोऽजनाओं का किया निरिदान
               </p>
             </div>
           </div>
-          <div className="border-t border-gray-800 pt-6 text-center text-sm text-gray-400">
-            <p>© 2024 Pahad-Dialogue. All rights reserved</p>
+        </div>
+
+        {/* Main Content */}
+        <div style={{ maxWidth: '1280px', margin: '0 auto', padding: '32px 16px' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: '1fr', gap: '24px', marginBottom: '48px' }}>
+            <style jsx>{`
+              @media (min-width: 1024px) {
+                .main-grid {
+                  grid-template-columns: 2fr 1fr !important;
+                }
+              }
+            `}</style>
+            <div className="main-grid" style={{ display: 'grid', gridTemplateColumns: '1fr', gap: '24px' }}>
+              {/* Main Article */}
+              <div style={{ position: 'relative', borderRadius: '12px', overflow: 'hidden', boxShadow: '0 20px 25px -5px rgba(0,0,0,0.1)', cursor: 'pointer', transition: 'transform 0.3s' }}
+                   onMouseEnter={(e) => e.currentTarget.querySelector('img').style.transform = 'scale(1.05)'}
+                   onMouseLeave={(e) => e.currentTarget.querySelector('img').style.transform = 'scale(1)'}>
+                <img 
+                  src={mainArticle.image}
+                  alt={mainArticle.title}
+                  style={{ width: '100%', height: '500px', objectFit: 'cover', transition: 'transform 0.5s' }}
+                />
+                <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, black, transparent)' }}></div>
+                <div style={{ position: 'absolute', bottom: 0, left: 0, right: 0, padding: '32px', color: 'white' }}>
+                  <h1 style={{ fontSize: '32px', fontWeight: 'bold', marginBottom: '12px', lineHeight: '1.2' }}>
+                    {mainArticle.title}
+                  </h1>
+                  <p style={{ fontSize: '14px', color: '#d1d5db' }}>{mainArticle.date}</p>
+                </div>
+              </div>
+
+              {/* Side Articles */}
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
+                {sideArticles.map((article, idx) => (
+                  <div key={idx} style={{ position: 'relative', borderRadius: '12px', overflow: 'hidden', boxShadow: '0 10px 15px -3px rgba(0,0,0,0.1)', cursor: 'pointer' }}>
+                    <img 
+                      src={article.image}
+                      alt={article.title}
+                      style={{ width: '100%', height: '192px', objectFit: 'cover', transition: 'transform 0.5s' }}
+                      onMouseEnter={(e) => e.target.style.transform = 'scale(1.05)'}
+                      onMouseLeave={(e) => e.target.style.transform = 'scale(1)'}
+                    />
+                    <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, black, transparent)' }}></div>
+                    <div style={{ position: 'absolute', top: '16px', left: '16px' }}>
+                      <span style={{ background: '#eab308', color: 'black', fontSize: '12px', fontWeight: 'bold', padding: '4px 12px', borderRadius: '6px' }}>
+                        {article.category}
+                      </span>
+                    </div>
+                    <div style={{ position: 'absolute', bottom: 0, left: 0, right: 0, padding: '16px', color: 'white' }}>
+                      <h3 style={{ fontSize: '16px', fontWeight: 'bold', marginBottom: '4px', lineHeight: '1.4' }}>
+                        {article.title}
+                      </h3>
+                      <p style={{ fontSize: '12px', color: '#d1d5db' }}>{article.date}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+
+          {/* Section Tabs */}
+          <div style={{ marginTop: '48px', borderBottom: '2px solid #dc2626' }}>
+            <div style={{ display: 'flex', gap: '32px' }}>
+              <button style={{ paddingBottom: '12px', fontWeight: 'bold', color: '#dc2626', borderBottom: '4px solid #dc2626', background: 'none', border: 'none', cursor: 'pointer' }}>
+                उत्तरखंड
+              </button>
+              <button style={{ paddingBottom: '12px', fontWeight: 600, color: '#6b7280', background: 'none', border: 'none', cursor: 'pointer' }}>
+                राजनीति
+              </button>
+              <button style={{ paddingBottom: '12px', fontWeight: 600, color: '#6b7280', background: 'none', border: 'none', cursor: 'pointer' }}>
+                पर्यावरण
+              </button>
+            </div>
+          </div>
+
+          {/* Articles Grid */}
+          <div style={{ marginTop: '32px', display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '24px' }}>
+            {articles.map((article, idx) => (
+              <div key={idx} style={{ background: 'white', borderRadius: '12px', overflow: 'hidden', boxShadow: '0 4px 6px -1px rgba(0,0,0,0.1)', cursor: 'pointer', transition: 'box-shadow 0.3s' }}
+                   onMouseEnter={(e) => {
+                     e.currentTarget.style.boxShadow = '0 20px 25px -5px rgba(0,0,0,0.1)';
+                     e.currentTarget.querySelector('img').style.transform = 'scale(1.1)';
+                   }}
+                   onMouseLeave={(e) => {
+                     e.currentTarget.style.boxShadow = '0 4px 6px -1px rgba(0,0,0,0.1)';
+                     e.currentTarget.querySelector('img').style.transform = 'scale(1)';
+                   }}>
+                <div style={{ overflow: 'hidden' }}>
+                  <img 
+                    src={article.image}
+                    alt={article.title}
+                    style={{ width: '100%', height: '192px', objectFit: 'cover', transition: 'transform 0.5s' }}
+                  />
+                </div>
+                <div style={{ padding: '20px' }}>
+                  <h3 className="line-clamp-3" style={{ fontWeight: 'bold', color: '#1f2937', marginBottom: '8px', fontSize: '15px', lineHeight: '1.5' }}>
+                    {article.title}
+                  </h3>
+                  <p style={{ fontSize: '13px', color: '#6b7280' }}>{article.date}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {/* Categories */}
+          <div style={{ marginTop: '64px' }}>
+            <h2 style={{ fontSize: '28px', fontWeight: 'bold', marginBottom: '32px', color: '#1f2937' }}>
+              श्रेणियाँ
+            </h2>
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(120px, 1fr))', gap: '16px' }}>
+              {categories.map((cat, idx) => (
+                <button
+                  key={idx}
+                  style={{ 
+                    background: 'white',
+                    border: '2px solid #d1d5db',
+                    borderRadius: '8px',
+                    padding: '16px',
+                    fontWeight: 600,
+                    fontSize: '14px',
+                    color: '#374151',
+                    cursor: 'pointer',
+                    transition: 'all 0.3s'
+                  }}
+                  onMouseEnter={(e) => {
+                    e.target.style.borderColor = '#dc2626';
+                    e.target.style.color = '#dc2626';
+                    e.target.style.boxShadow = '0 10px 15px -3px rgba(0,0,0,0.1)';
+                  }}
+                  onMouseLeave={(e) => {
+                    e.target.style.borderColor = '#d1d5db';
+                    e.target.style.color = '#374151';
+                    e.target.style.boxShadow = 'none';
+                  }}
+                >
+                  {cat}
+                </button>
+              ))}
+            </div>
           </div>
         </div>
-      </footer>
-    </div>
+
+        {/* Footer */}
+        <footer style={{ background: '#111827', color: 'white', marginTop: '80px' }}>
+          <div style={{ maxWidth: '1280px', margin: '0 auto', padding: '48px 16px' }}>
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', gap: '32px', marginBottom: '32px' }}>
+              <div>
+                <h3 style={{ fontSize: '20px', fontWeight: 'bold', marginBottom: '16px', color: '#fbbf24' }}>पहाड डायलाग</h3>
+                <p style={{ fontSize: '14px', color: '#9ca3af' }}>उत्तराखंड की आवाज़, पहाड़ से पहाड़ी तक</p>
+              </div>
+              <div>
+                <h4 style={{ fontWeight: 'bold', marginBottom: '16px' }}>लिंक</h4>
+                <ul style={{ listStyle: 'none', padding: 0 }}>
+                  <li style={{ marginBottom: '8px' }}><a href="/" style={{ color: '#9ca3af', textDecoration: 'none', fontSize: '14px' }}>होम</a></li>
+                  <li style={{ marginBottom: '8px' }}><a href="/about" style={{ color: '#9ca3af', textDecoration: 'none', fontSize: '14px' }}>हमारे बारे में</a></li>
+                  <li style={{ marginBottom: '8px' }}><a href="/contact" style={{ color: '#9ca3af', textDecoration: 'none', fontSize: '14px' }}>संपर्क</a></li>
+                </ul>
+              </div>
+              <div>
+                <h4 style={{ fontWeight: 'bold', marginBottom: '16px' }}>संपर्क</h4>
+                <p style={{ fontSize: '14px', color: '#9ca3af' }}>
+                  ईमेल: info@pahaddialogue.com<br/>
+                  फोन: +91 1234567890
+                </p>
+              </div>
+            </div>
+            <div style={{ borderTop: '1px solid #374151', paddingTop: '32px', textAlign: 'center' }}>
+              <p style={{ fontSize: '14px', color: '#9ca3af' }}>© 2024 Pahad-Dialogue. All rights reserved</p>
+            </div>
+          </div>
+        </footer>
+      </div>
+    </>
   );
-      }
+}
