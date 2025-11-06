@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import Head from 'next/head';
 
 export default function PahadDialogueHome() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -66,11 +65,6 @@ export default function PahadDialogueHome() {
 
   return (
     <>
-      <Head>
-        <title>Pahad Dialogue - पहाड़ डायलॉग</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-      </Head>
-
       <style jsx global>{`
         * {
           margin: 0;
@@ -87,40 +81,56 @@ export default function PahadDialogueHome() {
           -webkit-box-orient: vertical;
           overflow: hidden;
         }
+        @keyframes pulse {
+          0%, 100% {
+            opacity: 1;
+          }
+          50% {
+            opacity: .8;
+          }
+        }
+        .animate-pulse {
+          animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+        }
+        @media (min-width: 1024px) {
+          .main-grid {
+            grid-template-columns: 2fr 1fr !important;
+          }
+        }
       `}</style>
 
       <div style={{ minHeight: '100vh', background: '#f9fafb' }}>
         {/* Header - LOGO SIZE FIXED */}
         <div style={{ background: 'white', borderBottom: '1px solid #e5e7eb', boxShadow: '0 1px 2px 0 rgba(0,0,0,0.05)' }}>
-          <div style={{ maxWidth: '1280px', margin: '0 auto', padding: '12px 16px' }}>
+          <div style={{ maxWidth: '1280px', margin: '0 auto', padding: '8px 16px' }}>
             <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
               {/* Mobile Menu */}
               <button 
                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
                 style={{ 
-                  display: mobileMenuOpen ? 'block' : 'none',
+                  display: 'block',
                   fontSize: '24px',
                   border: 'none',
                   background: 'none',
                   cursor: 'pointer',
                   padding: '8px'
                 }}
-                className="md-hidden"
               >
                 {mobileMenuOpen ? '✕' : '☰'}
               </button>
 
-              {/* Logo & Header - SIZE CONTROLLED */}
-              <div style={{ display: 'flex', alignItems: 'center', gap: '16px', flex: 1, justifyContent: 'center' }}>
+              {/* Logo & Header - VERSION 7 SIZE */}
+              <div style={{ display: 'flex', alignItems: 'center', gap: '12px', flex: 1, justifyContent: 'center' }}>
                 <img 
                   src="/logo.png" 
-                  alt="Pahad Dialogue Logo" 
+                  alt="PD Logo" 
                   style={{ 
-                    height: '50px',
-                    width: '50px',
+                    height: '36px',
+                    width: '36px',
                     objectFit: 'contain',
-                    maxHeight: '50px',
-                    maxWidth: '50px'
+                    maxHeight: '36px',
+                    maxWidth: '36px',
+                    flexShrink: 0
                   }}
                   onError={(e) => {
                     e.target.style.display = 'none';
@@ -130,14 +140,14 @@ export default function PahadDialogueHome() {
                   src="/header.jpg" 
                   alt="Pahad Dialogue" 
                   style={{ 
-                    height: '50px',
+                    height: '36px',
                     width: 'auto',
                     objectFit: 'contain',
-                    maxHeight: '50px',
-                    maxWidth: '400px'
+                    maxHeight: '36px',
+                    maxWidth: '300px'
                   }}
                   onError={(e) => {
-                    e.target.innerHTML = '<span style="color:#dc2626;font-weight:bold;font-size:24px">पहाड़ डायलॉग</span>';
+                    e.target.outerHTML = '<span style="color:#dc2626;font-weight:bold;font-size:18px">पहाड़ डायलॉग</span>';
                   }}
                 />
               </div>
@@ -160,7 +170,7 @@ export default function PahadDialogueHome() {
         {/* Navigation */}
         <nav style={{ background: 'white', borderBottom: '1px solid #e5e7eb', position: 'sticky', top: 0, zIndex: 40, boxShadow: '0 1px 2px 0 rgba(0,0,0,0.05)' }}>
           <div style={{ maxWidth: '1280px', margin: '0 auto', padding: '0 16px' }}>
-            <div style={{ display: 'flex', gap: '24px', padding: '12px 0', overflowX: 'auto' }}>
+            <div style={{ display: mobileMenuOpen ? 'none' : 'flex', gap: '24px', padding: '12px 0', overflowX: 'auto' }}>
               {navigationItems.map((item, idx) => (
                 <a
                   key={idx}
@@ -180,6 +190,29 @@ export default function PahadDialogueHome() {
                 </a>
               ))}
             </div>
+
+            {/* Mobile Menu Dropdown */}
+            {mobileMenuOpen && (
+              <div style={{ padding: '12px 0' }}>
+                {navigationItems.map((item, idx) => (
+                  <a
+                    key={idx}
+                    href={item.href}
+                    style={{ 
+                      display: 'block',
+                      color: '#374151',
+                      fontWeight: 600,
+                      fontSize: '15px',
+                      textDecoration: 'none',
+                      padding: '8px 0'
+                    }}
+                    onClick={() => setMobileMenuOpen(false)}
+                  >
+                    {item.label}
+                  </a>
+                ))}
+              </div>
+            )}
           </div>
         </nav>
 
@@ -190,7 +223,7 @@ export default function PahadDialogueHome() {
               <span style={{ fontWeight: 'bold', fontSize: '12px', textTransform: 'uppercase', whiteSpace: 'nowrap' }}>
                 BREAKING NEWS
               </span>
-              <p style={{ fontSize: '14px', animation: 'pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite' }}>
+              <p className="animate-pulse" style={{ fontSize: '14px' }}>
                 चुण्णानी में किया राज्य के दौरा दिवाला सिरोऽजनाओं का किया निरिदान
               </p>
             </div>
@@ -199,88 +232,87 @@ export default function PahadDialogueHome() {
 
         {/* Main Content */}
         <div style={{ maxWidth: '1280px', margin: '0 auto', padding: '32px 16px' }}>
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr', gap: '24px', marginBottom: '48px' }}>
-            <style jsx>{`
-              @media (min-width: 1024px) {
-                .main-grid {
-                  grid-template-columns: 2fr 1fr !important;
-                }
-              }
-            `}</style>
-            <div className="main-grid" style={{ display: 'grid', gridTemplateColumns: '1fr', gap: '24px' }}>
-              {/* Main Article */}
-              <div style={{ position: 'relative', borderRadius: '12px', overflow: 'hidden', boxShadow: '0 20px 25px -5px rgba(0,0,0,0.1)', cursor: 'pointer', transition: 'transform 0.3s' }}
-                   onMouseEnter={(e) => e.currentTarget.querySelector('img').style.transform = 'scale(1.05)'}
-                   onMouseLeave={(e) => e.currentTarget.querySelector('img').style.transform = 'scale(1)'}>
-                <img 
-                  src={mainArticle.image}
-                  alt={mainArticle.title}
-                  style={{ width: '100%', height: '500px', objectFit: 'cover', transition: 'transform 0.5s' }}
-                />
-                <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, black, transparent)' }}></div>
-                <div style={{ position: 'absolute', bottom: 0, left: 0, right: 0, padding: '32px', color: 'white' }}>
-                  <h1 style={{ fontSize: '32px', fontWeight: 'bold', marginBottom: '12px', lineHeight: '1.2' }}>
-                    {mainArticle.title}
-                  </h1>
-                  <p style={{ fontSize: '14px', color: '#d1d5db' }}>{mainArticle.date}</p>
-                </div>
+          <div className="main-grid" style={{ display: 'grid', gridTemplateColumns: '1fr', gap: '24px', marginBottom: '48px' }}>
+            {/* Main Article */}
+            <div style={{ position: 'relative', borderRadius: '12px', overflow: 'hidden', boxShadow: '0 20px 25px -5px rgba(0,0,0,0.1)', cursor: 'pointer', transition: 'transform 0.3s' }}
+                 onMouseEnter={(e) => {
+                   const img = e.currentTarget.querySelector('img');
+                   if (img) img.style.transform = 'scale(1.05)';
+                 }}
+                 onMouseLeave={(e) => {
+                   const img = e.currentTarget.querySelector('img');
+                   if (img) img.style.transform = 'scale(1)';
+                 }}>
+              <img 
+                src={mainArticle.image}
+                alt={mainArticle.title}
+                style={{ width: '100%', height: '500px', objectFit: 'cover', transition: 'transform 0.5s' }}
+              />
+              <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, rgba(0,0,0,0.9), rgba(0,0,0,0.4), transparent)' }}></div>
+              <div style={{ position: 'absolute', bottom: 0, left: 0, right: 0, padding: '32px', color: 'white' }}>
+                <h1 style={{ fontSize: '32px', fontWeight: 'bold', marginBottom: '12px', lineHeight: '1.2' }}>
+                  {mainArticle.title}
+                </h1>
+                <p style={{ fontSize: '14px', color: '#d1d5db' }}>{mainArticle.date}</p>
               </div>
+            </div>
 
-              {/* Side Articles */}
-              <div style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
-                {sideArticles.map((article, idx) => (
-                  <div key={idx} style={{ position: 'relative', borderRadius: '12px', overflow: 'hidden', boxShadow: '0 10px 15px -3px rgba(0,0,0,0.1)', cursor: 'pointer' }}>
-                    <img 
-                      src={article.image}
-                      alt={article.title}
-                      style={{ width: '100%', height: '192px', objectFit: 'cover', transition: 'transform 0.5s' }}
-                      onMouseEnter={(e) => e.target.style.transform = 'scale(1.05)'}
-                      onMouseLeave={(e) => e.target.style.transform = 'scale(1)'}
-                    />
-                    <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, black, transparent)' }}></div>
-                    <div style={{ position: 'absolute', top: '16px', left: '16px' }}>
-                      <span style={{ background: '#eab308', color: 'black', fontSize: '12px', fontWeight: 'bold', padding: '4px 12px', borderRadius: '6px' }}>
-                        {article.category}
-                      </span>
-                    </div>
-                    <div style={{ position: 'absolute', bottom: 0, left: 0, right: 0, padding: '16px', color: 'white' }}>
-                      <h3 style={{ fontSize: '16px', fontWeight: 'bold', marginBottom: '4px', lineHeight: '1.4' }}>
-                        {article.title}
-                      </h3>
-                      <p style={{ fontSize: '12px', color: '#d1d5db' }}>{article.date}</p>
-                    </div>
+            {/* Side Articles */}
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
+              {sideArticles.map((article, idx) => (
+                <div key={idx} style={{ position: 'relative', borderRadius: '12px', overflow: 'hidden', boxShadow: '0 10px 15px -3px rgba(0,0,0,0.1)', cursor: 'pointer' }}>
+                  <img 
+                    src={article.image}
+                    alt={article.title}
+                    style={{ width: '100%', height: '192px', objectFit: 'cover', transition: 'transform 0.5s' }}
+                    onMouseEnter={(e) => e.target.style.transform = 'scale(1.05)'}
+                    onMouseLeave={(e) => e.target.style.transform = 'scale(1)'}
+                  />
+                  <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, rgba(0,0,0,0.9), rgba(0,0,0,0.4), transparent)' }}></div>
+                  <div style={{ position: 'absolute', top: '16px', left: '16px' }}>
+                    <span style={{ background: '#eab308', color: 'black', fontSize: '12px', fontWeight: 'bold', padding: '4px 12px', borderRadius: '6px' }}>
+                      {article.category}
+                    </span>
                   </div>
-                ))}
-              </div>
+                  <div style={{ position: 'absolute', bottom: 0, left: 0, right: 0, padding: '16px', color: 'white' }}>
+                    <h3 style={{ fontSize: '16px', fontWeight: 'bold', marginBottom: '4px', lineHeight: '1.4' }}>
+                      {article.title}
+                    </h3>
+                    <p style={{ fontSize: '12px', color: '#d1d5db' }}>{article.date}</p>
+                  </div>
+                </div>
+              ))}
             </div>
           </div>
 
           {/* Section Tabs */}
           <div style={{ marginTop: '48px', borderBottom: '2px solid #dc2626' }}>
-            <div style={{ display: 'flex', gap: '32px' }}>
-              <button style={{ paddingBottom: '12px', fontWeight: 'bold', color: '#dc2626', borderBottom: '4px solid #dc2626', background: 'none', border: 'none', cursor: 'pointer' }}>
+            <div style={{ display: 'flex', gap: '32px', overflowX: 'auto' }}>
+              <button style={{ paddingBottom: '12px', fontWeight: 'bold', color: '#dc2626', borderBottom: '4px solid #dc2626', background: 'none', border: 'none', borderBottomStyle: 'solid', cursor: 'pointer', whiteSpace: 'nowrap' }}>
                 उत्तरखंड
               </button>
-              <button style={{ paddingBottom: '12px', fontWeight: 600, color: '#6b7280', background: 'none', border: 'none', cursor: 'pointer' }}>
+              <button style={{ paddingBottom: '12px', fontWeight: 600, color: '#6b7280', background: 'none', border: 'none', cursor: 'pointer', whiteSpace: 'nowrap' }}>
                 राजनीति
               </button>
-              <button style={{ paddingBottom: '12px', fontWeight: 600, color: '#6b7280', background: 'none', border: 'none', cursor: 'pointer' }}>
+              <button style={{ paddingBottom: '12px', fontWeight: 600, color: '#6b7280', background: 'none', border: 'none', cursor: 'pointer', whiteSpace: 'nowrap' }}>
                 पर्यावरण
               </button>
             </div>
           </div>
 
           {/* Articles Grid */}
-          <div style={{ marginTop: '32px', display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '24px' }}>
+          <div style={{ marginTop: '32px', display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '24px' }}>
             {articles.map((article, idx) => (
               <div key={idx} style={{ background: 'white', borderRadius: '12px', overflow: 'hidden', boxShadow: '0 4px 6px -1px rgba(0,0,0,0.1)', cursor: 'pointer', transition: 'box-shadow 0.3s' }}
                    onMouseEnter={(e) => {
                      e.currentTarget.style.boxShadow = '0 20px 25px -5px rgba(0,0,0,0.1)';
-                     e.currentTarget.querySelector('img').style.transform = 'scale(1.1)';
+                     const img = e.currentTarget.querySelector('img');
+                     if (img) img.style.transform = 'scale(1.1)';
                    }}
                    onMouseLeave={(e) => {
                      e.currentTarget.style.boxShadow = '0 4px 6px -1px rgba(0,0,0,0.1)';
-                     e.currentTarget.querySelector('img').style.transform = 'scale(1)';
+                     const img = e.currentTarget.querySelector('img');
+                     if (img) img.style.transform = 'scale(1)';
                    }}>
                 <div style={{ overflow: 'hidden' }}>
                   <img 
@@ -369,4 +401,4 @@ export default function PahadDialogueHome() {
       </div>
     </>
   );
-    }
+}
